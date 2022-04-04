@@ -1,44 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nuck <nuck@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/04 23:07:56 by nuck              #+#    #+#             */
-/*   Updated: 2022/04/04 23:50:39 by nuck             ###   ########.fr       */
+/*   Created: 2022/04/04 23:19:46 by nuck              #+#    #+#             */
+/*   Updated: 2022/04/04 23:43:41 by nuck             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	print_case(va_list *args, char ident)
+void	ft_putchar(char c)
 {
-	if (ident == 'c')
-		ft_putchar(va_arg(*args, int));
-	else if (ident == 's')
-		ft_putstr(va_arg(*args, char *));
-	else if (ident == '%')
-		ft_putchar('%');
+	write(1, &c, 1);
 }
 
-int	ft_printf(const char *s, ...)
+void	ft_putstr(char *str)
 {
-	int		i;
-	va_list	args;
-
-	i = -1;
-	va_start(args, s);
-	while (s[++i] != '\0')
+	while (*str)
 	{
-		if (s[i] != '%')
-			write(1, &s[i], 1);
-		else
-		{
-			print_case(&args, s[i + 1]);
-			i++;
-		}
+		write(1, str, 1);
+		str++;
 	}
-	va_end(args);
-	return (0);
 }

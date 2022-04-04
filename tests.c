@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-void te3t(const char *s, ...)
+void	test(const char *s, ...)
 {
 	va_list args;
 	int i;
@@ -16,8 +16,5 @@ void te3t(const char *s, ...)
 
 int main()
 {
-	char *s;
 
-	s = "01234";
-	write(1, &s[2], 1);
 }
