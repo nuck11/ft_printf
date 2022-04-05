@@ -25,3 +25,8 @@ void	ft_putstr(char *str)
 		str++;
 	}
 }
+
+void	ft_putbase(char *base, long long nbr)
+{
+
+}
