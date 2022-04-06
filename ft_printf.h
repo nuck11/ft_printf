@@ -12,5 +12,6 @@ size_t	ft_strlen(const char *s);
 int		ft_putbase(long long num, char *base);
 int		ft_printf(const char *s, ...);
 int		print_case(va_list *args, char ident);
+int		ft_pointerbase(unsigned long num, char *base);
 
 #endif

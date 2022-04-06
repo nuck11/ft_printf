@@ -6,7 +6,7 @@
 /*   By: nuck <nuck@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 23:19:46 by nuck              #+#    #+#             */
-/*   Updated: 2022/04/06 11:51:26 by nuck             ###   ########.fr       */
+/*   Updated: 2022/04/06 14:10:26 by nuck             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ size_t	ft_strlen(const char *s)
 
 int	ft_putchar(char c)
 {
-	return (write (1, &c, 1));
+	return (write(1, &c, 1));
 }
 
 int	ft_putstr(char *str)
@@ -52,6 +52,23 @@ int	ft_putbase(long long num, char *base)
 		return (i);
 	}
 	i += ft_putbase(num / max, base);
+	i += write(1, &base[num % max], 1);
+	return (i);
+}
+
+int	ft_pointerbase(unsigned long num, char *base)
+{
+	unsigned long	max;
+	int				i;
+
+	i = 0;
+	max = (unsigned long)ft_strlen(base);
+	if (num < max)
+	{
+		i += write(1, &base[num], 1);
+		return (i);
+	}
+	i += ft_pointerbase(num / max, base);
 	i += write(1, &base[num % max], 1);
 	return (i);
 }

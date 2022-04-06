@@ -6,7 +6,7 @@
 /*   By: nuck <nuck@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 23:07:56 by nuck              #+#    #+#             */
-/*   Updated: 2022/04/06 00:55:51 by nuck             ###   ########.fr       */
+/*   Updated: 2022/04/06 14:10:43 by nuck             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	print_case(va_list *args, char ident)
 	else if (ident == 'p')
 	{
 		i += write(1, "0x", 2);
-		i += ft_putbase(va_arg(*args, long), "0123456789abcdef");
+		i += ft_pointerbase(va_arg(*args, unsigned long), "0123456789abcdef");
 	}
 	else if (ident == '%')
 		i += ft_putchar('%');
