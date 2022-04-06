@@ -6,7 +6,7 @@
 /*   By: nuck <nuck@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 23:19:46 by nuck              #+#    #+#             */
-/*   Updated: 2022/04/06 00:54:11 by nuck             ###   ########.fr       */
+/*   Updated: 2022/04/06 11:51:26 by nuck             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,9 @@ int	ft_putchar(char c)
 
 int	ft_putstr(char *str)
 {
-	int	i;
-
-	i = 0;
-	while (*str)
-	{
-		i += write(1, str, 1);
-		str++;
-	}
-	return (i);
+	if (!str)
+		return (write(1, "(null)", 6));
+	return (write(1, str, ft_strlen(str)));
 }
 
 int	ft_putbase(long long num, char *base)
